@@ -5,8 +5,8 @@
 #include <queue>
 #include <cmath>
 #include <cstring>
-#include <climits>
 #include <cassert>
+#include <climits>
 #include <algorithm>
 using namespace std;
 
@@ -19,10 +19,16 @@ int main(){
     int n, m; cin >> n >> m;
     assert(n > 0);
     vector<vector<int>> graph(n), rev_graph(n);
+    map<pair<int, int>, bool> edges;
     for (int i = 0; i < m; i++){
         int u, v; cin >> u >> v;
+        while (u < 0 || u >= n || v < 0 || v >= n || u == v || edges[{u, v}] || edges[{v, u}]){
+            cout << "The Input Format of above line is bogus. Kindly reconsider it again." << endl;
+            cin >> u >> v;
+        }
         graph[u].push_back(v);
         rev_graph[v].push_back(u);
+        edges[{u, v}] = true;
     }
     queue<int> q;
     vector<bool> vis(n, false);
