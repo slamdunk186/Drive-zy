@@ -71,6 +71,14 @@ def solve():
         alex.goto(pos1)
         alex.pendown()
         alex.goto(pos2)
+        alex.penup()
+
+    alex.penup()
+    for i in range(n):
+        alex.goto(vehicles[i].pos())
+        
+        alex.back(40)
+        alex.write(i, font=("Cooper Black", 25, "italic"))
 
     q = []
     q.append(0)
@@ -98,5 +106,4 @@ def solve():
 
 
 solve()
-
 wn.mainloop()
