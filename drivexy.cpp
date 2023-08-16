@@ -13,7 +13,6 @@ using namespace std;
 #define speedup ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 #define ll long long
 
-
 int main(){
     speedup
     int n, m; cin >> n >> m;
